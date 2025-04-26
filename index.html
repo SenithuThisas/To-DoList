@@ -3,23 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list APP</title>
+    <title>TaskMaster - Your Ultimate Task Manager</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo2.png" alt="TaskMaster Logo">
+                <h1>TaskMaster</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Tasks</a>
+                <a href="categories.html">Categories</a>
+                <a href="analytics.html">Analytics</a>
+            </div>
+            <div class="user-actions">
+                <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+                <div class="user-profile">
+                    <img src="img/default-avatar.png" alt="User Avatar" id="user-avatar">
+                    <span id="user-header-name"></span>
+                    <div class="user-dropdown">
+                        <div class="user-info">
+                            <span id="user-name">User Name</span>
+                            <span id="user-email">user@email.com</span>
+                        </div>
+                        <div class="dropdown-links">
+                            <a href="#" id="edit-profile"><i class="fas fa-user-edit"></i> Edit Profile</a>
+                            <a href="#" id="settings"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <div class="container">
         <div class="todo-app">
-            <h2>To Do List <img src="img/logo2.png" alt="logo"></h2>
+            <div class="app-header">
+                <h2>My Tasks</h2>
+                <div class="task-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+            </div>
+            
             <div class="row">
                 <input type="text" id="input-box" placeholder="Add your task">
-                <button id="add-btn">Add</button>
+                <select id="category-select">
+                    <option value="">Select Category</option>
+                    <!-- Categories will be added here dynamically -->
+                </select>
+                <button id="add-btn">Add Task</button>
             </div>
+
+            <div class="task-stats">
+                <div class="stat">
+                    <span class="stat-value" id="total-tasks">0</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="completed-tasks">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="pending-tasks">0</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+            </div>
+
             <ul id="list-container">
                 <!-- Tasks will be added here dynamically -->
             </ul>
         </div>
     </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="profile-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><center>Edit Profile</center><h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="profile-form">
+                <div class="form-group">
+                    <label for="profile-name">Full Name</label>
+                    <input type="text" id="profile-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="profile-email">Email</label>
+                    <input type="email" id="profile-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="profile-password">New Password (leave blank to keep current)</label>
+                    <input type="password" id="profile-password">
+                </div>
+                <button type="submit" class="auth-btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TaskMaster Pro. All rights reserved.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
