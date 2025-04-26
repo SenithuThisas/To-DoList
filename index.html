@@ -5,26 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list APP</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
     <div class="container">
         <div class="todo-app">
-            <h2 class="logo">To Do List <img src="img/logo2.png" alt="logo"></h2>
+            <h2>To Do List <img src="img/logo2.png" alt="logo"></h2>
             <div class="row">
-                <input type="text" id="input-box" placeholder="Add your text">
-                <button>Addd</button>
+                <input type="text" id="input-box" placeholder="Add your task">
+                <button id="add-btn">Add</button>
             </div>
-            <br>
-
-            <div class="row">
-                <input type="text" id="input-box" placeholder="Add your text">
-                <button>Add</button>
-            </div>
-    
+            <ul id="list-container">
+                <!-- Tasks will be added here dynamically -->
+            </ul>
         </div>
-       
     </div>
-    
+    <script src="script.js"></script>
 </body>
 </html>
