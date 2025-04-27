@@ -1,125 +1,355 @@
-*{
+:root {
+    --primary-color: #2E3192;
+    --secondary-color: #1BFFFF;
+    --text-color: #333;
+    --bg-color: #fff;
+    --task-bg: #f8f8f8;
+    --input-bg: #edeef0;
+    --button-color: #7851A9;
+    --button-hover: #e5ff00;
+    --border-radius: 10px;
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --primary-color: #1BFFFF;
+    --secondary-color: #2E3192;
+    --text-color: #fff;
+    --bg-color: #1a1a1a;
+    --task-bg: #2d2d2d;
+    --input-bg: #333;
+    --button-color: #ff5945;
+    --button-hover: #ff3d27;
+}
+
+* {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-
 }
 
-.container{
-
-    width: 100%;
+body {
+    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-color);
     min-height: 100vh;
-    background: linear-gradient(120deg, #2E3192,  #1BFFFF);
-    padding: 10px;
-
+    display: flex;
+    flex-direction: column;
 }
 
-.todo-app{
+header {
+    background: var(--bg-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
     width: 100%;
-    max-width: 540px ;
-    background: #fff;
-    margin: 100px auto 20px;
-    padding: 40px 30px 70px;
-    border-radius: 10px;
-
-
+    top: 0;
+    z-index: 1000;
 }
 
-.todo-app h2{
-    color: #002765;
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.todo-app h2 img{
-    width: 30px;
-    margin-left: 10px;
-}
-
-.row{
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    background: #edeef0;
-    border-radius: 30px;
-    padding-left: 20px;
-    margin-bottom: 25px;
+    align-items: center;
 }
 
-input{
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--button-color);
+}
+
+.user-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.user-actions button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.user-actions button:hover {
+    color: var(--button-color);
+}
+
+.container {
     flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 10px;
-    font-size: 16px;
+    padding: 100px 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-#add-btn{
+.todo-app {
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.task-filters {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-btn {
+    background: none;
     border: none;
-    outline: none;
-    padding: 16px 50px;
-    background: #ff5945;
-    color: #fff;
-    font-size: 16px;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
     cursor: pointer;
-    border-radius: 40px;
-    transition: background 0.3s;
+    border-radius: 20px;
+    transition: var(--transition);
 }
 
-#add-btn:hover{
-    background: #ff3d27;
+.filter-btn.active {
+    background: var(--button-color);
+    color: white;
 }
 
-ul li{
+.row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+#add-btn {
+    padding: 1rem 2rem;
+    background: var(--button-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+#add-btn:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.task-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--task-bg);
+    border-radius: var(--border-radius);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--button-color);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+ul li {
     list-style: none;
-    font-size: 17px;
-    padding: 12px 8px 12px 50px;
-    user-select: none;
-    cursor: pointer;
-    position: relative;
-    background: #f8f8f8;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    padding: 1rem;
+    background: var(--task-bg);
+    margin-bottom: 0.5rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
 }
 
-ul li::before{
-    content: '';
-    position: absolute;
-    height: 28px;
-    width: 28px;
-    border-radius: 50%;
-    background-image: url('img/unchecked.png');
-    background-size: cover;
-    background-position: center;
-    top: 12px;
-    left: 8px;
+ul li:hover {
+    transform: translateX(5px);
 }
 
-ul li.checked{
-    color: #555;
+ul li.checked {
+    opacity: 0.7;
     text-decoration: line-through;
 }
 
-ul li.checked::before{
-    background-image: url('img/checked.png');
+ul li span {
+    color: var(--button-color);
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-ul li span{
-    position: absolute;
-    right: 0;
-    top: 5px;
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-    color: #555;
-    line-height: 40px;
+ul li span:hover {
+    color: var(--button-hover);
+}
+
+footer {
     text-align: center;
-    border-radius: 50%;
+    padding: 1rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin-top: auto;
 }
 
-ul li span:hover{
-    background: #edeef0;
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .app-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .task-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .row {
+        flex-direction: column;
+    }
+    
+    #add-btn {
+        width: 100%;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.4);
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+.modal.show {
+    display: flex;
+}
+.modal-content {
+    background: var(--bg-color, #fff);
+    border-radius: var(--border-radius, 10px);
+    padding: 2rem;
+    min-width: 320px;
+    max-width: 90vw;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    position: relative;
+}
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color, #333);
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+    .modal-content {
+        min-width: 90vw;
+        padding: 1rem;
+    }
+}
+
+/* Modal Form Styling */
+#profile-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+#profile-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+#profile-form input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius, 10px);
+    background: var(--input-bg, #edeef0);
+    color: var(--text-color, #333);
+    transition: var(--transition, all 0.3s);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#profile-form input:focus {
+    border-color: var(--button-color, #ff5945);
+    outline: none;
+}
+
+#profile-form .auth-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--button-color, #ff5945);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius, 10px);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition, all 0.3s);
+    margin-top: 0.5rem;
+}
+
+#profile-form .auth-btn:hover {
+    background: var(--button-hover, #ff3d27);
+    transform: translateY(-2px);
 }
