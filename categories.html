@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - TaskMaster Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo2.png" alt="TaskMaster Logo">
+                <h1>TaskMaster Pro</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Tasks</a>
+                <a href="categories.html" class="active">Categories</a>
+                <a href="analytics.html">Analytics</a>
+            </div>
+            <div class="user-actions">
+                <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="user-profile"><i class="fas fa-user"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="categories-app">
+            <div class="app-header">
+                <h2>Task Categories</h2>
+                <button id="add-category-btn" class="add-btn">
+                    <i class="fas fa-plus"></i> Add Category
+                </button>
+            </div>
+
+            <div class="categories-grid" id="categories-container">
+                <!-- Categories will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div class="modal" id="category-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Category</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="category-form">
+                <div class="form-group">
+                    <label for="category-name">Category Name</label>
+                    <input type="text" id="category-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="category-color">Color</label>
+                    <input type="color" id="category-color" value="#2E3192">
+                </div>
+                <div class="form-group">
+                    <label for="category-icon">Icon</label>
+                    <select id="category-icon">
+                        <option value="fa-briefcase">Briefcase</option>
+                        <option value="fa-home">Home</option>
+                        <option value="fa-shopping-cart">Shopping</option>
+                        <option value="fa-heart">Health</option>
+                        <option value="fa-graduation-cap">Education</option>
+                        <option value="fa-plane">Travel</option>
+                        <option value="fa-star">Personal</option>
+                        <option value="fa-code">Work</option>
+                    </select>
+                </div>
+                <button type="submit" class="auth-btn">Create Category</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="categories.js"></script>
+</body>
+</html> 
