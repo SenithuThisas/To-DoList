@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - TaskMaster Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo2.png" alt="TaskMaster Logo">
+                <h1>TaskMaster Pro</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Tasks</a>
+                <a href="categories.html">Categories</a>
+                <a href="analytics.html" class="active">Analytics</a>
+            </div>
+            <div class="user-actions">
+                <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="user-profile"><i class="fas fa-user"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="analytics-app">
+            <div class="app-header">
+                <h2>Task Analytics</h2>
+                <div class="date-filter">
+                    <select id="time-range">
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="year">This Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <h3>Task Completion Rate</h3>
+                    <div class="chart-container">
+                        <canvas id="completion-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <h3>Tasks by Category</h3>
+                    <div class="chart-container">
+                        <canvas id="category-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <h3>Productivity Trends</h3>
+                    <div class="chart-container">
+                        <canvas id="trend-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <h3>Task Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="distribution-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analytics-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Completion Rate</h4>
+                        <p id="completion-rate">0%</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Average Time</h4>
+                        <p id="avg-time">0 min</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Total Tasks</h4>
+                        <p id="total-tasks">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Productivity Score</h4>
+                        <p id="productivity-score">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="analytics.js"></script>
+</body>
+</html> 
