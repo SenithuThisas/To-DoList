@@ -165,6 +165,9 @@ function renderTasks() {
     
     filteredTasks.forEach(task => {
         const li = document.createElement("li");
+        if (task.completed) {
+            li.classList.add("checked");
+        }
         li.innerHTML = `
             <div class="task-content">
                 <input type="checkbox" ${task.completed ? 'checked' : ''}>
@@ -211,6 +214,7 @@ function toggleTask(id) {
         return task;
     });
     saveTasks();
+    renderTasks();
     updateStats();
 }
 
